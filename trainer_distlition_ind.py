@@ -203,7 +203,7 @@ class Trainer:
 						h_targets = [t[0] for t in real_triples]
 						h_index_t = h_index.t()
 						r_index_reverse = r_index + data.relation_num
-						batch = torch.stack([t_index, h_index_t, r_index_reverse], dim=-1)
+						batch = torch.stack([h_index_t, t_index, r_index], dim=-1)
 						for i, triple in enumerate(real_triples):
 							h , t, r = triple
 							h_expects = set(groundtruth['train']['head'][(r, t)])
